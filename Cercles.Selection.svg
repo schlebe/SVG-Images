@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="350" height="350" viewBox="0 0 350 350">
+  <style>
+    text 
+        {
+        font-family:Arial;
+        }
+  </style>
+  <title>SVG 3 Circles Intersection </title>
+                  <script type="text/JavaScript">
+
+                    arrayCertificationType =
+                        [ { no:  1, code:".$L.$H.$V.LH.HV.VL.LHV", text:"LABEL+HOMO+VECTO"}
+                        , { no:  2, code:".$L.$H.$V.LH.HV.VL    ", text:"-LHV"}
+                        , { no:  3, code:".$L.$H.$V.LH.HV   .LHV", text:"-VL"}
+                        , { no:  4, code:".$L.$H.$V.LH.HV       ", text:"-(VECTO.LABEL)"}
+                        , { no:  5, code:".$L.$H.$V.LH   .VL.LHV", text:"-HV"}
+                        , { no:  6, code:".$L.$H.$V.LH   .VL    ", text:"-(HOMO.VECTO)"}
+                        , { no:  7, code:".$L.$H.$V.LH      .LHV", text:"-(HV+VL)"}
+                        , { no:  8, code:".$L.$H.$V.LH          ", text:"^LABEL+^HOMO+^VECTO-LH"}
+                        , { no:  9, code:".$L.$H.$V   .HV.VL.LHV", text:"-LH"}
+                        , { no: 10, code:".$L.$H.$V   .HV.VL    ", text:"-(LABEL.HOMO)"}
+                        , { no: 11, code:".$L.$H.$V   .HV   .LHV", text:"-(LH+VL)"}
+                        , { no: 12, code:".$L.$H.$V   .HV       ", text:"^LABEL+^HOMO+^VECTO+HV"}
+                        , { no: 13, code:".$L.$H.$V      .VL.LHV", text:"-(LH+HV)"}
+                        , { no: 14, code:".$L.$H.$V      .VL    ", text:"-(L.H+H.V)"}
+                        , { no: 15, code:".$L.$H.$V         .LHV", text:"-(LH+HV+VL)"}
+                        , { no: 16, code:".$L.$H.$V             ", text:"^LABEL+^HOMO+^VECTO"}
+                        , { no: 17, code:".$L.$H   .LH.HV.VL.LHV", text:"LABEL+HOMO"}
+                        , { no: 18, code:".$L.$H   .LH.HV.VL    ", text:"LABEL+HOMO-LHV"}
+                        , { no: 19, code:".$L.$H   .LH.HV   .LHV", text:"LABEL+HOMO-LV"}
+                        , { no: 20, code:".$L.$H   .LH.HV       ", text:"LABEL+HOMO-(L.V)"}
+                        , { no: 21, code:".$L.$H   .LH   .VL.LHV", text:"LABEL+HOMO-HV"}
+                        , { no: 22, code:".$L.$H   .LH   .VL    ", text:"LABEL+HOMO-(H.V)"}
+                        , { no: 23, code:".$L.$H   .LH      .LHV", text:"-VECTO+LHV"}
+                        , { no: 24, code:".$L.$H   .LH          ", text:"-VECTO"}
+                        , { no: 25, code:".$L.$H      .HV.VL.LHV", text:"LABEL+HOMO-LH"}
+                        , { no: 26, code:".$L.$H      .HV.VL    ", text:"LABEL+HOMO-(L.H)"}
+                        , { no: 27, code:".$L.$H      .HV   .LHV", text:"^LABEL+^HOMO+(H.V)"}
+                        , { no: 28, code:".$L.$H      .HV       ", text:"^LABEL+^HOMO+HV"}
+                        , { no: 29, code:".$L.$H         .VL.LHV", text:"^LABEL+^HOMO+(V.L)"}
+                        , { no: 30, code:".$L.$H         .VL    ", text:"^LABEL+^HOMO+VL"}
+                        , { no: 31, code:".$L.$H            .LHV", text:"^LABEL+^HOMO+HLV"}
+                        , { no: 32, code:".$L.$H                ", text:"^LABEL+^HOMO"}
+                        , { no: 33, code:".$L   .$V.LH.HV.VL.LHV", text:"LABEL+VECTO"}
+                        , { no: 34, code:".$L   .$V.LH.HV.VL    ", text:"LABEL+VECTO-HLV"}
+                        , { no: 35, code:".$L   .$V.LH.HV   .LHV", text:"LABEL+VECTO-VL"}
+                        , { no: 36, code:".$L   .$V.LH.HV       ", text:"LABEL+VECTO-(V.L)"}
+                        , { no: 37, code:".$L   .$V.LH   .VL.LHV", text:"LABEL+VECTO-HV"}
+                        , { no: 38, code:".$L   .$V.LH   .VL    ", text:"LABEL+VECTO-(H.V)"}
+                        , { no: 39, code:".$L   .$V.LH      .LHV", text:"^LABEL+^VECTO+(L.H)"}
+                        , { no: 40, code:".$L   .$V.LH          ", text:"^LABEL+^VECTO+LH"}
+                        , { no: 41, code:".$L   .$V   .HV.VL.LHV", text:"LABEL+VECTO-LH"}
+                        , { no: 42, code:".$L   .$V   .HV.VL    ", text:"LABEL+VECTO-(L.H)"}
+                        , { no: 43, code:".$L   .$V   .HV   .LHV", text:"^LABEL+^VECTO+(H.V)"}
+                        , { no: 44, code:".$L   .$V   .HV       ", text:"^LABEL+^VECTO+HV"}
+                        , { no: 45, code:".$L   .$V      .VL.LHV", text:"^LABEL+^VECTO+(V.L)"}
+                        , { no: 46, code:".$L   .$V      .VL    ", text:"-HOMO"}
+                        , { no: 47, code:".$L   .$V         .LHV", text:"-HOMO+LHV"}
+                        , { no: 48, code:".$L   .$V             ", text:"^LABEL+^VECTO"}
+                        , { no: 49, code:".$L      .LH.HV.VL.LHV", text:"LABEL+HV"}
+                        , { no: 50, code:".$L      .LH.HV.VL    ", text:"LABEL-LHV+HV"}
+                        , { no: 51, code:".$L      .LH.HV   .LHV", text:"LABEL+HV-VL"}
+                        , { no: 52, code:".$L      .LH.HV       ", text:"LABEL+HV-(V.L)"}
+                        , { no: 53, code:".$L      .LH   .VL.LHV", text:"LABEL"}
+                        , { no: 54, code:".$L      .LH   .VL    ", text:"LABEL-LHV"}
+                        , { no: 55, code:".$L      .LH      .LHV", text:"LABEL-VL"}
+                        , { no: 56, code:".$L      .LH          ", text:"LABEL-(V.L)"}
+                        , { no: 57, code:".$L         .HV.VL.LHV", text:"LABEL+HV-LH"}
+                        , { no: 58, code:".$L         .HV.VL    ", text:"LABEL+HV-(L.H)"}
+                        , { no: 59, code:".$L         .HV   .LHV", text:"^LABEL+(H.V)"}
+                        , { no: 60, code:".$L         .HV       ", text:"^LABEL+HV"}
+                        , { no: 61, code:".$L            .VL.LHV", text:"LABEL-LH"}
+                        , { no: 62, code:".$L            .VL    ", text:"LABEL-(L.H)"}
+                        , { no: 63, code:".$L               .LHV", text:"^LABEL+LHV"}
+                        , { no: 64, code:".$L                   ", text:"^LABEL"}
+                        , { no: 65, code:"   .$H.$V.LH.HV.VL.LHV", text:"HOMO+VECTO"}
+                        , { no: 66, code:"   .$H.$V.LH.HV.VL    ", text:"HOMO+VECTO-LHV"}
+                        , { no: 67, code:"   .$H.$V.LH.HV   .LHV", text:"HOMO+VECTO-VL"}
+                        , { no: 68, code:"   .$H.$V.LH.HV       ", text:"HOMO+VECTO-(V.L)"}
+                        , { no: 69, code:"   .$H.$V.LH   .VL.LHV", text:"HOMO+VECTO-HV"}
+                        , { no: 60, code:"   .$H.$V.LH   .VL    ", text:"HOMO+VECTO-(H.V)"}
+                        , { no: 71, code:"   .$H.$V.LH      .LHV", text:"^HOMO+^VECTO-(L.H)"}
+                        , { no: 72, code:"   .$H.$V.LH          ", text:"^HOMO+^VECTO+LH"}
+                        , { no: 73, code:"   .$H.$V   .HV.VL.LHV", text:"HOMO+VECTO-LH"}
+                        , { no: 74, code:"   .$H.$V   .HV.VL    ", text:"HOMO+VECTO-(L.H)"}
+                        , { no: 75, code:"   .$H.$V   .HV   .LHV", text:"-LABEL+LHV"}
+                        , { no: 76, code:"   .$H.$V   .HV       ", text:"-LABEL"}
+                        , { no: 77, code:"   .$H.$V      .VL.LHV", text:"^HOMO+^VECTO+(V.L)"}
+                        , { no: 78, code:"   .$H.$V      .VL    ", text:"^HOMO+^VECTO+VL"}
+                        , { no: 79, code:"   .$H.$V         .LHV", text:"^HOMO+^VECTO+LHV"}
+                        , { no: 80, code:"   .$H.$V             ", text:"^HOMO+^VECTO"}
+                        , { no: 81, code:"   .$H   .LH.HV.VL.LHV", text:"HOMO+VL"}
+                        , { no: 82, code:"   .$H   .LH.HV.VL    ", text:"HOMO+VL-LHV"}
+                        , { no: 83, code:"   .$H   .LH.HV   .LHV", text:"HOMO"}
+                        , { no: 84, code:"   .$H   .LH.HV       ", text:"HOMO-LHV"}
+                        , { no: 85, code:"   .$H   .LH   .VL.LHV", text:"HOMO+VL-HV"}
+                        , { no: 86, code:"   .$H   .LH   .VL    ", text:"HOMO+VL-(H.V)"}
+                        , { no: 87, code:"   .$H   .LH      .LHV", text:"HOMO-HV"}
+                        , { no: 88, code:"   .$H   .LH          ", text:"HOMO-(H.V)"}
+                        , { no: 89, code:"   .$H      .HV.VL.LHV", text:"HOMO+VL-LH"}
+                        , { no: 90, code:"   .$H      .HV.VL    ", text:"HOMO+VL-(L.H)"}
+                        , { no: 91, code:"   .$H      .HV   .LHV", text:"HOMO-LH"}
+                        , { no: 92, code:"   .$H      .HV       ", text:"HOMO-(L.H)"}
+                        , { no: 93, code:"   .$H         .VL.LHV", text:"^HOMO+(V.L)"}
+                        , { no: 94, code:"   .$H         .VL    ", text:"^HOMO+VL"}
+                        , { no: 95, code:"   .$H            .LHV", text:"^HOMO+LHV"}
+                        , { no: 96, code:"   .$H                ", text:"^HOMO"}
+                        , { no: 97, code:"      .$V.LH.HV.VL.LHV", text:"VECTO+LH"}
+                        , { no: 98, code:"      .$V.LH.HV.VL    ", text:"VECTO+LV-LVH"}
+                        , { no: 99, code:"      .$V.LH.HV   .LHV", text:"VECTO+LH-VL"}
+                        , { no:100, code:"      .$V.LH.HV       ", text:"VECTO+LH-(V.L)"}
+                        , { no:101, code:"      .$V.LH   .VL.LHV", text:"VECTO+LH-HV"}
+                        , { no:102, code:"      .$V.LH   .VL    ", text:"VECTO+LH-(H.V)"}
+                        , { no:103, code:"      .$V.LH      .LHV", text:"^VECTO+(L.H)"}
+                        , { no:104, code:"      .$V.LH          ", text:"^VECTO+LH"}
+                        , { no:105, code:"      .$V   .HV.VL.LHV", text:"VECTO"}
+                        , { no:106, code:"      .$V   .HV.VL    ", text:"VECTO-(L.H)"}
+                        , { no:107, code:"      .$V   .HV   .LHV", text:"VECTO-VL"}
+                        , { no:108, code:"      .$V   .HV       ", text:"VECTO-(V.L)"}
+                        , { no:109, code:"      .$V      .VL.LHV", text:"VECTO-HV"}
+                        , { no:110, code:"      .$V      .VL    ", text:"VECTO-(H.V)"}
+                        , { no:111, code:"      .$V         .LHV", text:"^VECTO+LHV"}
+                        , { no:112, code:"      .$V             ", text:"^VECTO"}
+                        , { no:113, code:"         .LH.HV.VL.LHV", text:"(L.H)+(H.V)+(V.L)"}
+                        , { no:114, code:"         .LH.HV.VL    ", text:"LH+HV+VL"}
+                        , { no:115, code:"         .LH.HV   .LHV", text:"(L.H)+(H.L)"}
+                        , { no:116, code:"         .LH.HV       ", text:"LH+HL"}
+                        , { no:117, code:"         .LH   .VL.LHV", text:"(L.H)+(V.L)"}
+                        , { no:118, code:"         .LH   .VL    ", text:"LH+VL"}
+                        , { no:119, code:"         .LH      .LHV", text:"lABEL.HOMO"}
+                        , { no:120, code:"         .LH          ", text:"LH"}
+                        , { no:121, code:"            .HV.VL.LHV", text:"(H.V)+(V.L)"}
+                        , { no:122, code:"            .HV.VL    ", text:"HV+VL"}
+                        , { no:123, code:"            .HV   .LHV", text:"HOMO.VECTO"}
+                        , { no:124, code:"            .HV       ", text:"HV"}
+                        , { no:125, code:"               .VL.LHV", text:"VECTO.LABEL"}
+                        , { no:126, code:"               .VL    ", text:"VL"}
+                        , { no:127, code:"                  .LHV", text:"LABEL.HOMO.VECTO"}
+                        , { no:128, code:"                      ", text:""}
+                    // Unicode INTERSECTION: ∩
+                    ];
+
+/*
+                    function onLoadDialog2() {
+                    var inbox = document.getElementById('SearchForm:CertificationCodeId');
+                    var outbox = document.getElementById('CodeId');
+                    outbox.value = inbox.value;
+                    var nIndex = getCurrentShapeIndex();
+                    paintShape(nIndex);
+					}
+*/
+
+      function getCurrentShapeIndex() {
+                        var textbox = document.getElementById('CodeId');
+                        var sCode = textbox.value;
+                        var nIndex = 0;
+
+                        console.log(">> sCode to search: " + sCode);
+
+                        for (var i = 0; i &lt; arrayCertificationType.length; i++) {
+                            if (arrayCertificationType[i].code === sCode) {
+                                nIndex = i;
+                                break;
+                            }
+                        }
+
+                        return nIndex;
+                    }
+
+      function setReadableCode() {
+                        var circLabel = document.getElementById('circLabel');
+                        var circHomo = document.getElementById('circHomo');
+                        var circVecto = document.getElementById('circVecto');
+                        var interLabelHomo = document.getElementById('interLabelHomo');
+                        var interHomoVecto = document.getElementById('interHomoVecto');
+                        var interVectoLabel = document.getElementById('interVectoLabel');
+                        var interLabelHomoVecto = document.getElementById('interLabelHomoVecto');
+
+                        var sCode = '';
+
+                        sCode += (circLabel.style.fill === 'yellow') ? '.$L' : '   ';
+                        sCode += (circHomo.style.fill === 'yellow') ? '.$H' : '   ';
+                        if (circVecto != null) {
+                            sCode += (circVecto.style.fill === 'yellow') ? '.$V' : '   ';
+                        }
+                        sCode += (interLabelHomo.style.fill === 'yellow') ? '.LH' : '   ';
+                        if (circVecto != null) {
+                            sCode += (interHomoVecto.style.fill === 'yellow') ? '.HV' : '   ';
+                            sCode += (interVectoLabel.style.fill === 'yellow') ? '.VL' : '   ';
+                            sCode += (interLabelHomoVecto.style.fill === 'yellow') ? '.LHV' : '    ';
+                        }
+
+                        var textbox = document.getElementById('CodeId');
+                        textbox.value = sCode;
+
+                        console.log(">> sCode: " + sCode);
+                        var sTextCode = "?";
+                        var nIndex = getCurrentShapeIndex();
+                        sTextCode = arrayCertificationType[nIndex].text;
+                        console.log(">> sText: " + arrayCertificationType[nIndex].text);
+
+                        var textbox = document.getElementById('SetCodeId');
+                        textbox.value = sTextCode;
+                        var textbox = document.getElementById('CodeIndexId');
+                        textbox.value = (nIndex + 1).toString();
+                    }
+
+                      function clickCircle(sCircle, sInter2a, sInter2b, sInter3) {
+                        var circ = document.getElementById(sCircle);
+                        var inter2a = document.getElementById(sInter2a);
+                        var inter2b = document.getElementById(sInter2b);
+                        var inter3 = document.getElementById(sInter3);
+
+                        var sColor = '';
+
+                        if (circ.style.fill == '' || circ.style.fill == 'white') {
+                            sColor = 'yellow';
+                        }
+                        else {
+                            sColor = 'white';
+                        }
+
+                        circ.style.fill = sColor;
+                        inter2a.style.fill = sColor;
+                        inter2b.style.fill = sColor;
+                        inter3.style.fill = sColor;
+
+                        setReadableCode();
+                    }
+
+                    function clickCircLabel() {
+                        clickCircle('circLabel', 'interLabelHomo', 'interVectoLabel', 'interLabelHomoVecto');
+                    }
+
+                    function clickCircHomo() {
+                        clickCircle('circHomo', 'interLabelHomo', 'interHomoVecto', 'interLabelHomoVecto');
+                    }
+
+                    function clickCircVecto() {
+                        clickCircle('circVecto', 'interVectoLabel', 'interHomoVecto', 'interLabelHomoVecto');
+                    }
+
+                    function clickIntersection2(sInter2, sInter3) {
+                        var inter2 = document.getElementById(sInter2);
+                        var inter3 = document.getElementById(sInter3);
+                        var sColor = '';
+
+                        if (inter2.style.fill == '' || inter2.style.fill == 'white') {
+                            sColor = 'yellow';
+                        }
+                        else {
+                            sColor = 'white';
+                        }
+
+                        inter2.style.fill = sColor;
+                        inter3.style.fill = sColor;
+
+                        setReadableCode();
+                    }
+
+                    function clickInterLabelHomo() {
+                        clickIntersection2('interLabelHomo', 'interLabelHomoVecto');
+                    }
+
+                    function clickInterHomoVecto() {
+                        clickIntersection2('interHomoVecto', 'interLabelHomoVecto');
+                    }
+
+                    function clickInterVectoLabel() {
+                        clickIntersection2('interVectoLabel', 'interLabelHomoVecto');
+                    }
+
+                    function clickInterLabelHomoVecto() {
+                        var inter = document.getElementById('interLabelHomoVecto');
+                        var sColor = '';
+
+                        if (inter.style.fill == '' || inter.style.fill == 'white') {
+                            sColor = 'yellow';
+                        }
+                        else {
+                            sColor = 'white';
+                        }
+
+                        inter.style.fill = sColor;
+                        setReadableCode();
+                    }
+
+  </script>
+                    <circle id="circLabel" cx="110" cy="110" r="100" stroke="red" stroke-width="0" fill="white" onclick="clickCircLabel();"/>
+                    <text x="60" y="110" text-anchor="middle" stroke="red" stroke-width="1px" onclick="clickCircLabel();">Label</text>
+
+                    <circle id="circHomo" cx="210" cy="110" r="100" stroke="blue" stroke-width="0" fill="yellow" onclick="clickCircHomo();"/>
+                    <text x="260" y="110" text-anchor="middle" stroke="blue" stroke-width="1px" onclick="clickCircHomo();">Homo</text>
+
+                    <circle id="circVecto" cx="160" cy="196.602541" r="100" stroke="green" stroke-width="0" fill="white" onclick="clickCircVecto();" />
+                    <text x="160" y="240" text-anchor="middle" stroke="green" stroke-width="1px" onclick="clickCircVecto();">Vecto</text>
+
+                    <path id="interLabelHomo"
+                          d="M 160 23.397460 a100,100 0 0,0 0,173.205081 a100,100 0 0,0 0,-173.205081 z"
+                          fill="white"
+                          stroke-width="3"
+                          onclick="clickInterLabelHomo();"
+                          />
+
+                    <path id="interVectoLabel"
+                          d="M 60 196.602541 a100,100 0 0,0 150,-86.602540 a100,100 0 0,0 -150,86.602540 z"
+                          fill="white"
+                          stroke-width="3"
+                          onclick="clickInterVectoLabel();"
+                          />
+
+                    <path id="interHomoVecto"
+                          d="M 260 196.602541 a100,100 0 0,0 -150,-86.602540 a100,100 0 0,0 150,86.602540 z"
+                          fill="white"
+                          stroke-width="3"
+                          onclick="clickInterHomoVecto();"
+                          />
+
+                    <path id="interLabelHomoVecto"
+                          d="M 110 110 a100,100 0 0,1 100,0 a100,100 0 0,1 -50,86.602540 a100,100 0 0,1 -50,-86.602540 z"
+                          fill="none"
+                          stroke-width="3"
+                          onclick="clickInterLabelHomoVecto();"
+                          />
+
+                    <circle cx="110" cy="110" r="100" stroke="red" stroke-width="3" fill="none" />
+                    <circle cx="210" cy="110" r="100" stroke="blue" stroke-width="3" fill="none" />
+                    <circle cx="160" cy="196.602541" r="100" stroke="green" stroke-width="3" fill="none" />
+
+</svg>
