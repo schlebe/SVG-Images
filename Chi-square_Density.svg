@@ -1,0 +1,294 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+	 xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 xmlns:ev="http://www.w3.org/2001/xml-events" 
+	 xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+	 id="chi-square_pdf" version="1.1" baseProfile="full" width="720" height="400">
+
+  <title>The chi-Square distribution</title>
+  <desc>
+     chi-square distribution
+     f_k(x) = x^(n/2-1) * exp(-x/2) / (2^(n/2) * gamma(n/2))
+     
+     from Wikimedia Commons
+     plot-range: 0 to 8
+     plotted with cubic bezier-curves
+     the bezier-controll-points are calculated to give a very accurate result.
+     accuracy is 0.00001 units
+     symbols in "Computer Modern" (TeX) font embedded
+     created with a plain text editor using GNU/Linux
+
+     about: http://commons.wikimedia.org/wiki/Image:chi-square_pdf.svg
+     source: http://commons.wikimedia.org/
+     rights: GNU Free Documentation license,
+             Creative Commons Attribution ShareAlike license
+  </desc>
+
+  <defs>
+    <!-- pstricks-style arrow, zoom 1.5 -->
+    <marker id="Arrow" refX="2.52" refY="2.25" markerUnits="strokeWidth" markerWidth="6" markerHeight="4.5" orient="auto">
+      <path d="M 2.52 2.25 L 0 4.5 L 6 2.25 L 0 0 z"/>
+    </marker>
+  </defs>
+
+  <style>
+    text {
+      font-family: "Computer Modern Serif", serif;
+    }
+
+    #main:has(#chkbox1)          #curve-1  { display:none; }
+    #main:has(#chkbox1:checked)  #curve-1  { display:block; }
+
+    #main:has(#chkbox2)          #curve-2 { display:none; }
+    #main:has(#chkbox2:checked)  #curve-2 { display:block; }
+
+    #main:has(#chkbox3)          #curve-3 { display:none; }
+    #main:has(#chkbox3:checked)  #curve-3 { display:block; }
+
+    #main:has(#chkbox4)          #curve-4 { display:none; }
+    #main:has(#chkbox4:checked)  #curve-4 { display:block; }
+
+    #main:has(#chkbox5)          #curve-5 { display:none; }
+    #main:has(#chkbox5:checked)  #curve-5 { display:block; }
+
+    #main:has(#chkbox6)          #curve-6 { display:none; }
+    #main:has(#chkbox6:checked)  #curve-6 { display:block; }
+
+    #main:has(#chkbox7)          #curve-7 { display:none; }
+    #main:has(#chkbox7:checked)  #curve-7 { display:block; }
+
+    #main:has(#chkbox8)          #curve-8 { display:none; }
+    #main:has(#chkbox8:checked)  #curve-8 { display:block; }
+
+    #main:has(#chkbox9)          #curve-9 { display:none; }
+    #main:has(#chkbox9:checked)  #curve-9 { display:block; }
+
+    #main:has(#chkbox10)         #curve-10 { display:none; }
+    #main:has(#chkbox10:checked) #curve-10 { display:block; }
+
+    #main:has(#chkShowPoints)         .points { display:none; }
+    #main:has(#chkShowPoints:checked) .points { display:block; }
+
+  </style>
+
+  <script>
+      function getValue(x)
+          {
+          y = x * Math.exp(-x/2) / 4;
+          s = " " + x + " : " + y;
+          console.log(s);
+          return s;
+          }
+  </script>
+
+  <rect id="background" x="0" y="0" width="600" height="400" fill="none"/>
+
+  <g id="main" transform="translate(61.5, 362.5)">
+    <!-- grid -->
+    <g id="grid" transform="scale(1,-1)" style="stroke:black; opacity:0.4; stroke-width:0.5; stroke-linecap:butt">
+      <path id="gridx" d="M   60,0 V 300.5             M  120,0 V 300.5             M  180,0 V 300.5             M  240,0 V 300.5             M  300,0 V 300.5             M  360,0 V 300.5             M  420,0 V 300.5             M  480,0 V 300.5"/>
+      <path id="gridy" d="M 0, 60 H 480             M 0,120 H 480             M 0,180 H 480             M 0,240 H 480             M 0,300 H 480"/>
+    </g>
+
+    <!-- ticks -->
+    <g id="ticks" transform="scale(1,-1)" style="stroke:black; stroke-width:1; stroke-linecap:square">
+      <path id="ticksx" d="M    0,-5 V 5             M   60,-5 V 5             M  120,-5 V 5             M  180,-5 V 5             M  240,-5 V 5             M  300,-5 V 5             M  360,-5 V 5             M  420,-5 V 5             M  480,-5 V 5"/>
+      <path id="ticksy" d="M -5,  0 H 5             M -5, 60 H 5             M -5,120 H 5             M -5,180 H 5             M -5,240 H 5             M -5,300 H 5"/>
+    </g>
+
+    <!-- axes -->
+    <line id="x-axis" x1="0" x2="510.5" y1="0" y2="0" stroke="black" stroke-width="2" stroke-linecap="butt" marker-end="url(#Arrow)"/>
+    <line id="y-axis" x1="0" x2="0" y1="0" y2="-330.5" stroke="black" stroke-width="2" stroke-linecap="butt" marker-end="url(#Arrow)"/>
+
+    <!-- labels -->
+    <g id="chik2" transform="translate(248,-332)">
+      <text fill="black" font-size="26">
+        <tspan x="0" y="0" font-style="italic" font-size="32">χ</tspan>
+        <tspan x="16" y="12" font-style="italic" font-size="20">k</tspan>
+        <tspan x="16" y="-8" font-size="20">2</tspan>
+        <!--tspan x="32" y="4" font-size="27">Probabilité</tspan-->
+      </text>
+    </g>
+
+    <g id="xl" transform="translate(521,18)">
+      <text fill="black" font-size="26">
+        <tspan font-style="italic">x</tspan>
+      </text>
+    </g>
+
+    <g id="Fkx" transform="translate(-60,-340)">
+      <text fill="black" font-size="26">
+        <tspan y="0" font-style="italic">F</tspan>
+        <tspan x="12" y="10" font-style="italic" font-size="20">k</tspan>
+        <tspan x="24" y="0" font-style="italic">(x)</tspan>
+      </text>
+    </g>
+
+    <g id="xlabels" transform="translate(-7,29)">
+      <text id="x0" x="0" y="0" fill="black" font-size="26">0</text>
+    <text id="x1" x="60" y="0" fill="black" font-size="26">1</text><text id="x2" x="120" y="0" fill="black" font-size="26">2</text><text id="x3" x="180" y="0" fill="black" font-size="26">3</text><text id="x4" x="240" y="0" fill="black" font-size="26">4</text><text id="x5" x="300" y="0" fill="black" font-size="26">5</text><text id="x6" x="360" y="0" fill="black" font-size="26">6</text><text id="x7" x="420" y="0" fill="black" font-size="26">7</text><text id="x8" x="480" y="0" fill="black" font-size="26">8</text></g>
+
+    <g id="ylabels" transform="translate(-43,8)">
+      <text id="y00" x="0" y="0" fill="black" font-size="26">0.0</text>
+    <text id="y01" x="0" y="-60" fill="black" font-size="26">0.1</text><text id="y02" x="0" y="-120" fill="black" font-size="26">0.2</text><text id="y03" x="0" y="-180" fill="black" font-size="26">0.3</text><text id="y04" x="0" y="-240" fill="black" font-size="26">0.4</text><text id="y05" x="0" y="-300" fill="black" font-size="26">0.5</text></g>
+
+    <!-- chi-square distribution curve -->
+    <g id="curves" transform="scale(60, -60)">
+      <g id="curve-1"><path class="curve" fill="none" stroke="#cccc00" stroke-width="0.05px" stroke-linecap="butt" d="M 0.418790,5.000030 Q 0.496462,4.342174 0.600000,3.815450 Q 0.688703,3.364195 0.800000,2.989840 Q 0.891315,2.682695 1.000000,2.419710 Q 1.210938,1.909301 1.500000,1.538660 Q 1.721725,1.254360 2.000000,1.037770 Q 2.227204,0.860930 2.500000,0.722890 Q 2.730416,0.606295 3.000000,0.513930 Q 3.232375,0.434314 3.500000,0.370560 Q 3.733813,0.314861 4.000000,0.269950 Q 4.234608,0.230367 4.500000,0.198220 Q 4.735568,0.169686 5.000000,0.146450 Q 5.235917,0.125720 5.500000,0.108750 Q 5.736439,0.093556 6.000000,0.081090 Q 6.237398,0.069861 6.500000,0.060670 Q 6.737194,0.052368 7.000000,0.045530 Q 7.236762,0.039369 7.500000,0.034260 Q 7.738730,0.029626 8.000000,0.025830"/><g id="points-1"><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="3.8154500000000002" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="3.8154500000000002" fill="black"/><title>x: 0.6000000000000001 y: 0.381545 k: 1</title></g><g class="points"><circle r="0.1" cx="0.8" cy="2.98984" opacity="0"/><circle r="0.02" cx="0.8" cy="2.98984" fill="black"/><title>x: 0.8 y: 0.298984 k: 1</title></g><g class="points"><circle r="0.1" cx="1.5" cy="1.5386600000000001" opacity="0"/><circle r="0.02" cx="1.5" cy="1.5386600000000001" fill="black"/><title>x: 1.5 y: 0.153866 k: 1</title></g><g class="points"><circle r="0.1" cx="2" cy="1.0377699999999999" opacity="0"/><circle r="0.02" cx="2" cy="1.0377699999999999" fill="black"/><title>x: 2 y: 0.103777 k: 1</title></g><g class="points"><circle r="0.1" cx="2.5" cy="0.72289" opacity="0"/><circle r="0.02" cx="2.5" cy="0.72289" fill="black"/><title>x: 2.5 y: 0.072289 k: 1</title></g><g class="points"><circle r="0.1" cx="3" cy="0.51393" opacity="0"/><circle r="0.02" cx="3" cy="0.51393" fill="black"/><title>x: 3 y: 0.051393 k: 1</title></g><g class="points"><circle r="0.1" cx="3.5" cy="0.37056" opacity="0"/><circle r="0.02" cx="3.5" cy="0.37056" fill="black"/><title>x: 3.5 y: 0.037056 k: 1</title></g><g class="points"><circle r="0.1" cx="4" cy="0.26995" opacity="0"/><circle r="0.02" cx="4" cy="0.26995" fill="black"/><title>x: 4 y: 0.026995 k: 1</title></g><g class="points"><circle r="0.1" cx="4.5" cy="0.19822" opacity="0"/><circle r="0.02" cx="4.5" cy="0.19822" fill="black"/><title>x: 4.5 y: 0.019822 k: 1</title></g><g class="points"><circle r="0.1" cx="5" cy="0.14645" opacity="0"/><circle r="0.02" cx="5" cy="0.14645" fill="black"/><title>x: 5 y: 0.014645 k: 1</title></g><g class="points"><circle r="0.1" cx="5.5" cy="0.10874999999999999" opacity="0"/><circle r="0.02" cx="5.5" cy="0.10874999999999999" fill="black"/><title>x: 5.5 y: 0.010875 k: 1</title></g><g class="points"><circle r="0.1" cx="6" cy="0.08109" opacity="0"/><circle r="0.02" cx="6" cy="0.08109" fill="black"/><title>x: 6 y: 0.008109 k: 1</title></g><g class="points"><circle r="0.1" cx="6.5" cy="0.06067" opacity="0"/><circle r="0.02" cx="6.5" cy="0.06067" fill="black"/><title>x: 6.5 y: 0.006067 k: 1</title></g><g class="points"><circle r="0.1" cx="7" cy="0.04553" opacity="0"/><circle r="0.02" cx="7" cy="0.04553" fill="black"/><title>x: 7 y: 0.004553 k: 1</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.03426" opacity="0"/><circle r="0.02" cx="7.5" cy="0.03426" fill="black"/><title>x: 7.5 y: 0.003426 k: 1</title></g><g class="points"><circle r="0.1" cx="8" cy="0.02583" opacity="0"/><circle r="0.02" cx="8" cy="0.02583" fill="black"/><title>x: 8 y: 0.002583 k: 1</title></g></g></g>
+      <g id="curve-2"><path class="curve" fill="none" stroke="lime" stroke-width="0.05px" stroke-linecap="butt" d="M 0,5.000000 Q 0.098323,4.754193 0.200000,4.524190 Q 0.298365,4.301680 0.400000,4.093650 Q 0.498316,3.892414 0.600000,3.704090 Q 0.698326,3.521985 0.800000,3.351600 Q 0.898351,3.186784 1.000000,3.032650 Q 1.239587,2.669356 1.500000,2.361830 Q 1.739568,2.078919 2.000000,1.839400 Q 2.239628,1.619014 2.500000,1.432520 Q 2.739570,1.260926 3.000000,1.115650 Q 3.239587,0.982001 3.500000,0.868870 Q 3.739567,0.764795 4.000000,0.676680 Q 4.239578,0.595621 4.500000,0.527000 Q 4.739750,0.463826 5.000000,0.410420 Q 5.239480,0.361276 5.500000,0.319640 Q 5.739463,0.281369 6.000000,0.248940 Q 6.239738,0.219100 6.500000,0.193870 Q 6.739394,0.170663 7.000000,0.150990 Q 7.239820,0.132886 7.500000,0.117590 Q 7.739615,0.103503 8.000000,0.091580"/><g id="points-2"><g class="points"><circle r="0.1" cx="0" cy="5" opacity="0"/><circle r="0.02" cx="0" cy="5" fill="black"/><title>x: 0 y: 0.5 k: 0 / 2</title></g><g class="points"><circle r="0.1" cx="0.2" cy="4.52419" opacity="0"/><circle r="0.02" cx="0.2" cy="4.52419" fill="black"/><title>x: 0.2 y: 0.452419 k: 2</title></g><g class="points"><circle r="0.1" cx="0.4" cy="4.09365" opacity="0"/><circle r="0.02" cx="0.4" cy="4.09365" fill="black"/><title>x: 0.4 y: 0.409365 k: 2</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="3.70409" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="3.70409" fill="black"/><title>x: 0.6000000000000001 y: 0.370409 k: 2</title></g><g class="points"><circle r="0.1" cx="0.8" cy="3.3516000000000004" opacity="0"/><circle r="0.02" cx="0.8" cy="3.3516000000000004" fill="black"/><title>x: 0.8 y: 0.33516 k: 2</title></g><g class="points"><circle r="0.1" cx="1" cy="3.0326500000000003" opacity="0"/><circle r="0.02" cx="1" cy="3.0326500000000003" fill="black"/><title>x: 1 y: 0.303265 k: 2</title></g><g class="points"><circle r="0.1" cx="1.5" cy="2.36183" opacity="0"/><circle r="0.02" cx="1.5" cy="2.36183" fill="black"/><title>x: 1.5 y: 0.236183 k: 2</title></g><g class="points"><circle r="0.1" cx="2.5" cy="1.4325199999999998" opacity="0"/><circle r="0.02" cx="2.5" cy="1.4325199999999998" fill="black"/><title>x: 2.5 y: 0.143252 k: 2</title></g><g class="points"><circle r="0.1" cx="3" cy="1.11565" opacity="0"/><circle r="0.02" cx="3" cy="1.11565" fill="black"/><title>x: 3 y: 0.111565 k: 2</title></g><g class="points"><circle r="0.1" cx="3.5" cy="0.86887" opacity="0"/><circle r="0.02" cx="3.5" cy="0.86887" fill="black"/><title>x: 3.5 y: 0.086887 k: 2</title></g><g class="points"><circle r="0.1" cx="4" cy="0.6766800000000001" opacity="0"/><circle r="0.02" cx="4" cy="0.6766800000000001" fill="black"/><title>x: 4 y: 0.067668 k: 2</title></g><g class="points"><circle r="0.1" cx="4.5" cy="0.5269999999999999" opacity="0"/><circle r="0.02" cx="4.5" cy="0.5269999999999999" fill="black"/><title>x: 4.5 y: 0.0527 k: 2</title></g><g class="points"><circle r="0.1" cx="5" cy="0.41042" opacity="0"/><circle r="0.02" cx="5" cy="0.41042" fill="black"/><title>x: 5 y: 0.041042 k: 2</title></g><g class="points"><circle r="0.1" cx="5.5" cy="0.31964" opacity="0"/><circle r="0.02" cx="5.5" cy="0.31964" fill="black"/><title>x: 5.5 y: 0.031964 k: 2</title></g><g class="points"><circle r="0.1" cx="6" cy="0.24894" opacity="0"/><circle r="0.02" cx="6" cy="0.24894" fill="black"/><title>x: 6 y: 0.024894 k: 2</title></g><g class="points"><circle r="0.1" cx="6.5" cy="0.19387000000000001" opacity="0"/><circle r="0.02" cx="6.5" cy="0.19387000000000001" fill="black"/><title>x: 6.5 y: 0.019387 k: 2</title></g><g class="points"><circle r="0.1" cx="7" cy="0.15098999999999999" opacity="0"/><circle r="0.02" cx="7" cy="0.15098999999999999" fill="black"/><title>x: 7 y: 0.015099 k: 2</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.11759" opacity="0"/><circle r="0.02" cx="7.5" cy="0.11759" fill="black"/><title>x: 7.5 y: 0.011759 k: 2</title></g><g class="points"><circle r="0.1" cx="8" cy="0.09158" opacity="0"/><circle r="0.02" cx="8" cy="0.09158" fill="black"/><title>x: 8 y: 0.009158 k: 2</title></g></g></g>
+      <g id="curve-3"><path class="curve" fill="none" stroke="#00cccc" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.000000,0.968604 0.200000,1.614340 Q 0.284298,1.886510 0.400000,2.065770 Q 0.490154,2.205448 0.600000,2.289270 Q 0.692228,2.359648 0.800000,2.391870 Q 0.893117,2.419710 1.000000,2.419710 Q 1.209569,2.419710 1.500000,2.307990 Q 1.701103,2.230632 2.000000,2.075540 Q 2.130457,2.007849 2.414214,1.853780 Q 2.476450,1.819988 2.500000,1.807220 Q 2.799398,1.644895 3.000000,1.541800 Q 3.260792,1.407771 3.500000,1.296970 Q 3.752016,1.180236 4.000000,1.079820 Q 4.248062,0.979372 4.500000,0.891980 Q 4.746017,0.806642 5.000000,0.732250 Q 5.244712,0.660574 5.500000,0.598110 Q 5.743804,0.538456 6.000000,0.486520 Q 6.242961,0.437267 6.500000,0.394380 Q 6.742975,0.353840 7.000000,0.318730 Q 7.242280,0.285635 7.500000,0.256940 Q 7.741874,0.230010 8.000000,0.206670"/><g id="points-3"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 3</title></g><g class="points"><circle r="0.1" cx="0.2" cy="1.6143399999999999" opacity="0"/><circle r="0.02" cx="0.2" cy="1.6143399999999999" fill="black"/><title>x: 0.2 y: 0.161434 k: 3</title></g><g class="points"><circle r="0.1" cx="0.4" cy="2.06577" opacity="0"/><circle r="0.02" cx="0.4" cy="2.06577" fill="black"/><title>x: 0.4 y: 0.206577 k: 3</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="2.28927" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="2.28927" fill="black"/><title>x: 0.6000000000000001 y: 0.228927 k: 3</title></g><g class="points"><circle r="0.1" cx="0.8" cy="2.39187" opacity="0"/><circle r="0.02" cx="0.8" cy="2.39187" fill="black"/><title>x: 0.8 y: 0.239187 k: 3</title></g><g class="points"><circle r="0.1" cx="1" cy="2.41971" opacity="0"/><circle r="0.02" cx="1" cy="2.41971" fill="black"/><title>x: 1 y: 0.241971 k: 1 / 3</title></g><g class="points"><circle r="0.1" cx="1.5" cy="2.30799" opacity="0"/><circle r="0.02" cx="1.5" cy="2.30799" fill="black"/><title>x: 1.5 y: 0.230799 k: 3</title></g><g class="points"><circle r="0.1" cx="2" cy="2.0755399999999997" opacity="0"/><circle r="0.02" cx="2" cy="2.0755399999999997" fill="black"/><title>x: 2 y: 0.207554 k: 3</title></g><g class="points"><circle r="0.1" cx="2.5" cy="1.80722" opacity="0"/><circle r="0.02" cx="2.5" cy="1.80722" fill="black"/><title>x: 2.5 y: 0.180722 k: 3</title></g><g class="points"><circle r="0.1" cx="2.5" cy="1.80722" opacity="0"/><circle r="0.02" cx="2.5" cy="1.80722" fill="black"/><title>x: 2.5 y: 0.180722 k: 3</title></g><g class="points"><circle r="0.1" cx="3.5" cy="1.29697" opacity="0"/><circle r="0.02" cx="3.5" cy="1.29697" fill="black"/><title>x: 3.5 y: 0.129697 k: 3</title></g><g class="points"><circle r="0.1" cx="4" cy="1.07982" opacity="0"/><circle r="0.02" cx="4" cy="1.07982" fill="black"/><title>x: 4 y: 0.107982 k: 3</title></g><g class="points"><circle r="0.1" cx="4.5" cy="0.89198" opacity="0"/><circle r="0.02" cx="4.5" cy="0.89198" fill="black"/><title>x: 4.5 y: 0.089198 k: 3</title></g><g class="points"><circle r="0.1" cx="5" cy="0.73225" opacity="0"/><circle r="0.02" cx="5" cy="0.73225" fill="black"/><title>x: 5 y: 0.073225 k: 3</title></g><g class="points"><circle r="0.1" cx="5.5" cy="0.59811" opacity="0"/><circle r="0.02" cx="5.5" cy="0.59811" fill="black"/><title>x: 5.5 y: 0.059811 k: 3</title></g><g class="points"><circle r="0.1" cx="6" cy="0.48652" opacity="0"/><circle r="0.02" cx="6" cy="0.48652" fill="black"/><title>x: 6 y: 0.048652 k: 3</title></g><g class="points"><circle r="0.1" cx="6.5" cy="0.39438" opacity="0"/><circle r="0.02" cx="6.5" cy="0.39438" fill="black"/><title>x: 6.5 y: 0.039438 k: 3</title></g><g class="points"><circle r="0.1" cx="7" cy="0.31872999999999996" opacity="0"/><circle r="0.02" cx="7" cy="0.31872999999999996" fill="black"/><title>x: 7 y: 0.031873 k: 3</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.25694" opacity="0"/><circle r="0.02" cx="7.5" cy="0.25694" fill="black"/><title>x: 7.5 y: 0.025694 k: 3</title></g><g class="points"><circle r="0.1" cx="8" cy="0.20667000000000002" opacity="0"/><circle r="0.02" cx="8" cy="0.20667000000000002" fill="black"/><title>x: 8 y: 0.020667 k: 3</title></g></g></g>
+      <g id="curve-4"><path class="curve" fill="none" stroke="blue" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.097483,0.243709 0.200000,0.452420 Q 0.297430,0.650775 0.400000,0.818730 Q 0.497393,0.978207 0.600000,1.111230 Q 0.697316,1.237393 0.800000,1.340640 Q 0.897275,1.438448 1.000000,1.516330 Q 1.232055,1.692264 1.500000,1.771370 Q 1.730431,1.839400 2.000000,1.839400 Q 2.227760,1.839400 2.500000,1.790650 Q 2.723207,1.750680 3.000000,1.673480 Q 3.212170,1.614304 3.500000,1.520520 Q 3.659872,1.468429 4.000000,1.353350 Q 4.326087,1.243022 4.500000,1.185740 Q 4.767749,1.097551 5.000000,1.026060 Q 5.256219,0.947191 5.500000,0.879010 Q 5.751464,0.808681 6.000000,0.746810 Q 6.249027,0.684817 6.500000,0.630080 Q 6.747361,0.576131 7.000000,0.528450 Q 7.245841,0.482052 7.500000,0.440960 Q 7.745372,0.401288 8.000000,0.366310"/><g id="points-4"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 4</title></g><g class="points"><circle r="0.1" cx="0.2" cy="0.45242" opacity="0"/><circle r="0.02" cx="0.2" cy="0.45242" fill="black"/><title>x: 0.2 y: 0.045242 k: 4</title></g><g class="points"><circle r="0.1" cx="0.4" cy="0.81873" opacity="0"/><circle r="0.02" cx="0.4" cy="0.81873" fill="black"/><title>x: 0.4 y: 0.081873 k: 4</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="1.11123" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="1.11123" fill="black"/><title>x: 0.6000000000000001 y: 0.111123 k: 4</title></g><g class="points"><circle r="0.1" cx="0.8" cy="1.3406399999999998" opacity="0"/><circle r="0.02" cx="0.8" cy="1.3406399999999998" fill="black"/><title>x: 0.8 y: 0.134064 k: 4</title></g><g class="points"><circle r="0.1" cx="1" cy="1.51633" opacity="0"/><circle r="0.02" cx="1" cy="1.51633" fill="black"/><title>x: 1 y: 0.151633 k: 4</title></g><g class="points"><circle r="0.1" cx="1.5" cy="1.77137" opacity="0"/><circle r="0.02" cx="1.5" cy="1.77137" fill="black"/><title>x: 1.5 y: 0.177137 k: 4</title></g><g class="points"><circle r="0.1" cx="2" cy="1.8394" opacity="0"/><circle r="0.02" cx="2" cy="1.8394" fill="black"/><title>x: 2 y: 0.18394 k: 2 / 4</title></g><g class="points"><circle r="0.1" cx="2.5" cy="1.79065" opacity="0"/><circle r="0.02" cx="2.5" cy="1.79065" fill="black"/><title>x: 2.5 y: 0.179065 k: 4</title></g><g class="points"><circle r="0.1" cx="3" cy="1.67348" opacity="0"/><circle r="0.02" cx="3" cy="1.67348" fill="black"/><title>x: 3 y: 0.167348 k: 4</title></g><g class="points"><circle r="0.1" cx="3.5" cy="1.5205199999999999" opacity="0"/><circle r="0.02" cx="3.5" cy="1.5205199999999999" fill="black"/><title>x: 3.5 y: 0.152052 k: 4</title></g><g class="points"><circle r="0.1" cx="4.5" cy="1.18574" opacity="0"/><circle r="0.02" cx="4.5" cy="1.18574" fill="black"/><title>x: 4.5 y: 0.118574 k: 4</title></g><g class="points"><circle r="0.1" cx="5" cy="1.02606" opacity="0"/><circle r="0.02" cx="5" cy="1.02606" fill="black"/><title>x: 5 y: 0.102606 k: 4</title></g><g class="points"><circle r="0.1" cx="5.5" cy="0.8790100000000001" opacity="0"/><circle r="0.02" cx="5.5" cy="0.8790100000000001" fill="black"/><title>x: 5.5 y: 0.087901 k: 4</title></g><g class="points"><circle r="0.1" cx="6" cy="0.74681" opacity="0"/><circle r="0.02" cx="6" cy="0.74681" fill="black"/><title>x: 6 y: 0.074681 k: 4</title></g><g class="points"><circle r="0.1" cx="6.5" cy="0.63008" opacity="0"/><circle r="0.02" cx="6.5" cy="0.63008" fill="black"/><title>x: 6.5 y: 0.063008 k: 4</title></g><g class="points"><circle r="0.1" cx="7" cy="0.5284500000000001" opacity="0"/><circle r="0.02" cx="7" cy="0.5284500000000001" fill="black"/><title>x: 7 y: 0.052845 k: 4</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.44096" opacity="0"/><circle r="0.02" cx="7.5" cy="0.44096" fill="black"/><title>x: 7.5 y: 0.044096 k: 4</title></g><g class="points"><circle r="0.1" cx="8" cy="0.36630999999999997" opacity="0"/><circle r="0.02" cx="8" cy="0.36630999999999997" fill="black"/><title>x: 8 y: 0.036631 k: 4</title></g></g></g>
+      <g id="curve-5"><path class="curve" fill="none" stroke="orange" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.057147,0.000000 0.200000,0.107620 Q 0.279078,0.167194 0.400000,0.275440 Q 0.448298,0.318675 0.550510,0.412470 Q 0.582339,0.441678 0.600000,0.457850 Q 0.718273,0.566154 0.800000,0.637830 Q 0.905408,0.730275 1.000000,0.806570 Q 1.256697,1.013614 1.500000,1.154000 Q 1.745499,1.295653 2.000000,1.383690 Q 2.240784,1.466982 2.500000,1.506020 Q 2.737583,1.541800 3.000000,1.541800 Q 3.234734,1.541800 3.500000,1.513130 Q 3.731117,1.488151 4.000000,1.439760 Q 4.225593,1.399160 4.500000,1.337970 Q 4.712897,1.290496 5.000000,1.220420 Q 5.145339,1.184946 5.449490,1.109130 Q 5.488470,1.099413 5.500000,1.096540 Q 5.814286,1.018217 6.000000,0.973040 Q 6.267600,0.907944 6.500000,0.854480 Q 6.757688,0.795199 7.000000,0.743710 Q 7.252528,0.690050 7.500000,0.642360 Q 7.750366,0.594112 8.000000,0.551120"/><g id="points-5"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 5</title></g><g class="points"><circle r="0.1" cx="0.2" cy="0.10762000000000001" opacity="0"/><circle r="0.02" cx="0.2" cy="0.10762000000000001" fill="black"/><title>x: 0.2 y: 0.010762 k: 5</title></g><g class="points"><circle r="0.1" cx="0.4" cy="0.27544" opacity="0"/><circle r="0.02" cx="0.4" cy="0.27544" fill="black"/><title>x: 0.4 y: 0.027544 k: 5</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="0.45785" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="0.45785" fill="black"/><title>x: 0.6000000000000001 y: 0.045785 k: 5</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="0.45785" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="0.45785" fill="black"/><title>x: 0.6000000000000001 y: 0.045785 k: 5</title></g><g class="points"><circle r="0.1" cx="0.8" cy="0.6378300000000001" opacity="0"/><circle r="0.02" cx="0.8" cy="0.6378300000000001" fill="black"/><title>x: 0.8 y: 0.063783 k: 5</title></g><g class="points"><circle r="0.1" cx="1" cy="0.80657" opacity="0"/><circle r="0.02" cx="1" cy="0.80657" fill="black"/><title>x: 1 y: 0.080657 k: 5</title></g><g class="points"><circle r="0.1" cx="1.5" cy="1.154" opacity="0"/><circle r="0.02" cx="1.5" cy="1.154" fill="black"/><title>x: 1.5 y: 0.1154 k: 5</title></g><g class="points"><circle r="0.1" cx="2" cy="1.3836899999999999" opacity="0"/><circle r="0.02" cx="2" cy="1.3836899999999999" fill="black"/><title>x: 2 y: 0.138369 k: 5</title></g><g class="points"><circle r="0.1" cx="2.5" cy="1.5060200000000001" opacity="0"/><circle r="0.02" cx="2.5" cy="1.5060200000000001" fill="black"/><title>x: 2.5 y: 0.150602 k: 5</title></g><g class="points"><circle r="0.1" cx="3" cy="1.5418" opacity="0"/><circle r="0.02" cx="3" cy="1.5418" fill="black"/><title>x: 3 y: 0.15418 k: 3 / 5</title></g><g class="points"><circle r="0.1" cx="3.5" cy="1.51313" opacity="0"/><circle r="0.02" cx="3.5" cy="1.51313" fill="black"/><title>x: 3.5 y: 0.151313 k: 5</title></g><g class="points"><circle r="0.1" cx="4" cy="1.43976" opacity="0"/><circle r="0.02" cx="4" cy="1.43976" fill="black"/><title>x: 4 y: 0.143976 k: 5</title></g><g class="points"><circle r="0.1" cx="4.5" cy="1.3379699999999999" opacity="0"/><circle r="0.02" cx="4.5" cy="1.3379699999999999" fill="black"/><title>x: 4.5 y: 0.133797 k: 5</title></g><g class="points"><circle r="0.1" cx="5.5" cy="1.09654" opacity="0"/><circle r="0.02" cx="5.5" cy="1.09654" fill="black"/><title>x: 5.5 y: 0.109654 k: 5</title></g><g class="points"><circle r="0.1" cx="5.5" cy="1.09654" opacity="0"/><circle r="0.02" cx="5.5" cy="1.09654" fill="black"/><title>x: 5.5 y: 0.109654 k: 5</title></g><g class="points"><circle r="0.1" cx="6" cy="0.97304" opacity="0"/><circle r="0.02" cx="6" cy="0.97304" fill="black"/><title>x: 6 y: 0.097304 k: 5</title></g><g class="points"><circle r="0.1" cx="6.5" cy="0.8544799999999999" opacity="0"/><circle r="0.02" cx="6.5" cy="0.8544799999999999" fill="black"/><title>x: 6.5 y: 0.085448 k: 5</title></g><g class="points"><circle r="0.1" cx="7" cy="0.7437100000000001" opacity="0"/><circle r="0.02" cx="7" cy="0.7437100000000001" fill="black"/><title>x: 7 y: 0.074371 k: 5</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.64236" opacity="0"/><circle r="0.02" cx="7.5" cy="0.64236" fill="black"/><title>x: 7.5 y: 0.064236 k: 5</title></g><g class="points"><circle r="0.1" cx="8" cy="0.55112" opacity="0"/><circle r="0.02" cx="8" cy="0.55112" fill="black"/><title>x: 8 y: 0.055112 k: 5</title></g></g></g>
+      <g id="curve-6"><path class="curve" fill="none" stroke="#aa00aa" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.094742,0.000000 0.200000,0.022620 Q 0.294027,0.042826 0.400000,0.081870 Q 0.492874,0.116087 0.600000,0.166680 Q 0.690670,0.209501 0.800000,0.268130 Q 0.885723,0.314100 1.000000,0.379080 Q 1.055324,0.410538 1.171573,0.477550 Q 1.386384,0.601378 1.500000,0.664270 Q 1.772199,0.814945 2.000000,0.919700 Q 2.254512,1.036738 2.500000,1.119160 Q 2.747768,1.202348 3.000000,1.255110 Q 3.243846,1.306118 3.500000,1.330460 Q 3.740871,1.353350 4.000000,1.353350 Q 4.238362,1.353350 4.500000,1.333960 Q 4.735457,1.316510 5.000000,1.282580 Q 5.231601,1.252875 5.500000,1.208640 Q 5.724760,1.171597 6.000000,1.120210 Q 6.207843,1.081406 6.500000,1.023880 Q 6.606582,1.002894 6.828427,0.958840 Q 6.948923,0.934912 7.000000,0.924790 Q 7.291429,0.867038 7.500000,0.826800 Q 7.765369,0.775605 8.000000,0.732630"/><g id="points-6"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 6</title></g><g class="points"><circle r="0.1" cx="0.2" cy="0.02262" opacity="0"/><circle r="0.02" cx="0.2" cy="0.02262" fill="black"/><title>x: 0.2 y: 0.002262 k: 6</title></g><g class="points"><circle r="0.1" cx="0.4" cy="0.08187" opacity="0"/><circle r="0.02" cx="0.4" cy="0.08187" fill="black"/><title>x: 0.4 y: 0.008187 k: 6</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="0.16668" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="0.16668" fill="black"/><title>x: 0.6000000000000001 y: 0.016668 k: 6</title></g><g class="points"><circle r="0.1" cx="0.8" cy="0.26813" opacity="0"/><circle r="0.02" cx="0.8" cy="0.26813" fill="black"/><title>x: 0.8 y: 0.026813 k: 6</title></g><g class="points"><circle r="0.1" cx="1" cy="0.37908" opacity="0"/><circle r="0.02" cx="1" cy="0.37908" fill="black"/><title>x: 1 y: 0.037908 k: 6</title></g><g class="points"><circle r="0.1" cx="1.5" cy="0.66427" opacity="0"/><circle r="0.02" cx="1.5" cy="0.66427" fill="black"/><title>x: 1.5 y: 0.066427 k: 6</title></g><g class="points"><circle r="0.1" cx="1.5" cy="0.66427" opacity="0"/><circle r="0.02" cx="1.5" cy="0.66427" fill="black"/><title>x: 1.5 y: 0.066427 k: 6</title></g><g class="points"><circle r="0.1" cx="2" cy="0.9197" opacity="0"/><circle r="0.02" cx="2" cy="0.9197" fill="black"/><title>x: 2 y: 0.09197 k: 6</title></g><g class="points"><circle r="0.1" cx="2.5" cy="1.11916" opacity="0"/><circle r="0.02" cx="2.5" cy="1.11916" fill="black"/><title>x: 2.5 y: 0.111916 k: 6</title></g><g class="points"><circle r="0.1" cx="3" cy="1.2551100000000002" opacity="0"/><circle r="0.02" cx="3" cy="1.2551100000000002" fill="black"/><title>x: 3 y: 0.125511 k: 6</title></g><g class="points"><circle r="0.1" cx="3.5" cy="1.33046" opacity="0"/><circle r="0.02" cx="3.5" cy="1.33046" fill="black"/><title>x: 3.5 y: 0.133046 k: 6</title></g><g class="points"><circle r="0.1" cx="4" cy="1.35335" opacity="0"/><circle r="0.02" cx="4" cy="1.35335" fill="black"/><title>x: 4 y: 0.135335 k: 4 / 6</title></g><g class="points"><circle r="0.1" cx="4.5" cy="1.3339599999999998" opacity="0"/><circle r="0.02" cx="4.5" cy="1.3339599999999998" fill="black"/><title>x: 4.5 y: 0.133396 k: 6</title></g><g class="points"><circle r="0.1" cx="5" cy="1.28258" opacity="0"/><circle r="0.02" cx="5" cy="1.28258" fill="black"/><title>x: 5 y: 0.128258 k: 6</title></g><g class="points"><circle r="0.1" cx="5.5" cy="1.20864" opacity="0"/><circle r="0.02" cx="5.5" cy="1.20864" fill="black"/><title>x: 5.5 y: 0.120864 k: 6</title></g><g class="points"><circle r="0.1" cx="6.5" cy="1.0238800000000001" opacity="0"/><circle r="0.02" cx="6.5" cy="1.0238800000000001" fill="black"/><title>x: 6.5 y: 0.102388 k: 6</title></g><g class="points"><circle r="0.1" cx="7" cy="0.92479" opacity="0"/><circle r="0.02" cx="7" cy="0.92479" fill="black"/><title>x: 7 y: 0.092479 k: 6</title></g><g class="points"><circle r="0.1" cx="7" cy="0.92479" opacity="0"/><circle r="0.02" cx="7" cy="0.92479" fill="black"/><title>x: 7 y: 0.092479 k: 6</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.8268" opacity="0"/><circle r="0.02" cx="7.5" cy="0.8268" fill="black"/><title>x: 7.5 y: 0.08268 k: 6</title></g><g class="points"><circle r="0.1" cx="8" cy="0.7326299999999999" opacity="0"/><circle r="0.02" cx="8" cy="0.7326299999999999" fill="black"/><title>x: 8 y: 0.073263 k: 6</title></g></g></g>
+      <g id="curve-7"><path class="curve" fill="none" stroke="green" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.116763,0.000000 0.200000,0.004300 Q 0.301413,0.009539 0.400000,0.022030 Q 0.498743,0.034541 0.600000,0.054940 Q 0.697366,0.074555 0.800000,0.102050 Q 0.896200,0.127821 1.000000,0.161310 Q 1.209918,0.229036 1.500000,0.346200 Q 1.610169,0.390697 1.837722,0.485810 Q 1.944663,0.530509 2.000000,0.553480 Q 2.292152,0.674755 2.500000,0.753010 Q 2.762548,0.851859 3.000000,0.925080 Q 3.253410,1.003221 3.500000,1.059190 Q 3.748584,1.115611 4.000000,1.151810 Q 4.245330,1.187133 4.500000,1.204170 Q 4.742900,1.220420 5.000000,1.220420 Q 5.240471,1.220420 5.500000,1.206190 Q 5.738050,1.193138 6.000000,1.167650 Q 6.235018,1.144783 6.500000,1.110820 Q 6.730919,1.081223 7.000000,1.041200 Q 7.222363,1.008126 7.500000,0.963540 Q 7.693684,0.932436 8.000000,0.881790"/><g id="points-7"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 7</title></g><g class="points"><circle r="0.1" cx="0.2" cy="0.0043" opacity="0"/><circle r="0.02" cx="0.2" cy="0.0043" fill="black"/><title>x: 0.2 y: 0.00043 k: 7</title></g><g class="points"><circle r="0.1" cx="0.4" cy="0.02203" opacity="0"/><circle r="0.02" cx="0.4" cy="0.02203" fill="black"/><title>x: 0.4 y: 0.002203 k: 7</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="0.054939999999999996" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="0.054939999999999996" fill="black"/><title>x: 0.6000000000000001 y: 0.005494 k: 7</title></g><g class="points"><circle r="0.1" cx="0.8" cy="0.10205" opacity="0"/><circle r="0.02" cx="0.8" cy="0.10205" fill="black"/><title>x: 0.8 y: 0.010205 k: 7</title></g><g class="points"><circle r="0.1" cx="1" cy="0.16131" opacity="0"/><circle r="0.02" cx="1" cy="0.16131" fill="black"/><title>x: 1 y: 0.016131 k: 7</title></g><g class="points"><circle r="0.1" cx="1.5" cy="0.34619999999999995" opacity="0"/><circle r="0.02" cx="1.5" cy="0.34619999999999995" fill="black"/><title>x: 1.5 y: 0.03462 k: 7</title></g><g class="points"><circle r="0.1" cx="2" cy="0.55348" opacity="0"/><circle r="0.02" cx="2" cy="0.55348" fill="black"/><title>x: 2 y: 0.055348 k: 7</title></g><g class="points"><circle r="0.1" cx="2" cy="0.55348" opacity="0"/><circle r="0.02" cx="2" cy="0.55348" fill="black"/><title>x: 2 y: 0.055348 k: 7</title></g><g class="points"><circle r="0.1" cx="2.5" cy="0.7530100000000001" opacity="0"/><circle r="0.02" cx="2.5" cy="0.7530100000000001" fill="black"/><title>x: 2.5 y: 0.075301 k: 7</title></g><g class="points"><circle r="0.1" cx="3" cy="0.9250800000000001" opacity="0"/><circle r="0.02" cx="3" cy="0.9250800000000001" fill="black"/><title>x: 3 y: 0.092508 k: 7</title></g><g class="points"><circle r="0.1" cx="3.5" cy="1.05919" opacity="0"/><circle r="0.02" cx="3.5" cy="1.05919" fill="black"/><title>x: 3.5 y: 0.105919 k: 7</title></g><g class="points"><circle r="0.1" cx="4" cy="1.15181" opacity="0"/><circle r="0.02" cx="4" cy="1.15181" fill="black"/><title>x: 4 y: 0.115181 k: 7</title></g><g class="points"><circle r="0.1" cx="4.5" cy="1.20417" opacity="0"/><circle r="0.02" cx="4.5" cy="1.20417" fill="black"/><title>x: 4.5 y: 0.120417 k: 7</title></g><g class="points"><circle r="0.1" cx="5" cy="1.22042" opacity="0"/><circle r="0.02" cx="5" cy="1.22042" fill="black"/><title>x: 5 y: 0.122042 k: 5 / 7</title></g><g class="points"><circle r="0.1" cx="5.5" cy="1.20619" opacity="0"/><circle r="0.02" cx="5.5" cy="1.20619" fill="black"/><title>x: 5.5 y: 0.120619 k: 7</title></g><g class="points"><circle r="0.1" cx="6" cy="1.1676499999999999" opacity="0"/><circle r="0.02" cx="6" cy="1.1676499999999999" fill="black"/><title>x: 6 y: 0.116765 k: 7</title></g><g class="points"><circle r="0.1" cx="6.5" cy="1.11082" opacity="0"/><circle r="0.02" cx="6.5" cy="1.11082" fill="black"/><title>x: 6.5 y: 0.111082 k: 7</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.96354" opacity="0"/><circle r="0.02" cx="7.5" cy="0.96354" fill="black"/><title>x: 7.5 y: 0.096354 k: 7</title></g><g class="points"><circle r="0.1" cx="8" cy="0.88179" opacity="0"/><circle r="0.02" cx="8" cy="0.88179" fill="black"/><title>x: 8 y: 0.088179 k: 7</title></g></g></g>
+      <g id="curve-8"><path class="curve" fill="none" stroke="yellow" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.131382,0.000000 0.200000,0.000750 Q 0.307478,0.001925 0.400000,0.005460 Q 0.503043,0.009397 0.600000,0.016670 Q 0.700971,0.024244 0.800000,0.035750 Q 0.899617,0.047324 1.000000,0.063180 Q 1.237630,0.100714 1.500000,0.166070 Q 1.722464,0.221486 2.000000,0.306570 Q 2.174307,0.360007 2.500000,0.466320 Q 2.510283,0.469677 2.535898,0.478040 Q 2.841260,0.577740 3.000000,0.627550 Q 3.272131,0.712939 3.500000,0.776100 Q 3.758814,0.847838 4.000000,0.902240 Q 4.252635,0.959224 4.500000,1.000470 Q 4.749081,1.042002 5.000000,1.068820 Q 5.246285,1.095143 5.500000,1.107920 Q 5.744043,1.120210 6.000000,1.120210 Q 6.241913,1.120210 6.500000,1.109200 Q 6.740192,1.098953 7.000000,1.078930 Q 7.237253,1.060645 7.500000,1.033490 Q 7.734133,1.009292 8.000000,0.976830"/><g id="points-8"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 8</title></g><g class="points"><circle r="0.1" cx="0.2" cy="0.0007499999999999999" opacity="0"/><circle r="0.02" cx="0.2" cy="0.0007499999999999999" fill="black"/><title>x: 0.2 y: 0.000075 k: 8</title></g><g class="points"><circle r="0.1" cx="0.4" cy="0.0054600000000000004" opacity="0"/><circle r="0.02" cx="0.4" cy="0.0054600000000000004" fill="black"/><title>x: 0.4 y: 0.000546 k: 8</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="0.01667" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="0.01667" fill="black"/><title>x: 0.6000000000000001 y: 0.001667 k: 8</title></g><g class="points"><circle r="0.1" cx="0.8" cy="0.035750000000000004" opacity="0"/><circle r="0.02" cx="0.8" cy="0.035750000000000004" fill="black"/><title>x: 0.8 y: 0.003575 k: 8</title></g><g class="points"><circle r="0.1" cx="1" cy="0.06318" opacity="0"/><circle r="0.02" cx="1" cy="0.06318" fill="black"/><title>x: 1 y: 0.006318 k: 8</title></g><g class="points"><circle r="0.1" cx="1.5" cy="0.16607" opacity="0"/><circle r="0.02" cx="1.5" cy="0.16607" fill="black"/><title>x: 1.5 y: 0.016607 k: 8</title></g><g class="points"><circle r="0.1" cx="2" cy="0.30657" opacity="0"/><circle r="0.02" cx="2" cy="0.30657" fill="black"/><title>x: 2 y: 0.030657 k: 8</title></g><g class="points"><circle r="0.1" cx="2.5" cy="0.46632" opacity="0"/><circle r="0.02" cx="2.5" cy="0.46632" fill="black"/><title>x: 2.5 y: 0.046632 k: 8</title></g><g class="points"><circle r="0.1" cx="3" cy="0.62755" opacity="0"/><circle r="0.02" cx="3" cy="0.62755" fill="black"/><title>x: 3 y: 0.062755 k: 8</title></g><g class="points"><circle r="0.1" cx="3" cy="0.62755" opacity="0"/><circle r="0.02" cx="3" cy="0.62755" fill="black"/><title>x: 3 y: 0.062755 k: 8</title></g><g class="points"><circle r="0.1" cx="3.5" cy="0.7761" opacity="0"/><circle r="0.02" cx="3.5" cy="0.7761" fill="black"/><title>x: 3.5 y: 0.07761 k: 8</title></g><g class="points"><circle r="0.1" cx="4" cy="0.9022399999999999" opacity="0"/><circle r="0.02" cx="4" cy="0.9022399999999999" fill="black"/><title>x: 4 y: 0.090224 k: 8</title></g><g class="points"><circle r="0.1" cx="4.5" cy="1.00047" opacity="0"/><circle r="0.02" cx="4.5" cy="1.00047" fill="black"/><title>x: 4.5 y: 0.100047 k: 8</title></g><g class="points"><circle r="0.1" cx="5" cy="1.06882" opacity="0"/><circle r="0.02" cx="5" cy="1.06882" fill="black"/><title>x: 5 y: 0.106882 k: 8</title></g><g class="points"><circle r="0.1" cx="5.5" cy="1.10792" opacity="0"/><circle r="0.02" cx="5.5" cy="1.10792" fill="black"/><title>x: 5.5 y: 0.110792 k: 8</title></g><g class="points"><circle r="0.1" cx="6" cy="1.12021" opacity="0"/><circle r="0.02" cx="6" cy="1.12021" fill="black"/><title>x: 6 y: 0.112021 k: 6 / 8</title></g><g class="points"><circle r="0.1" cx="6.5" cy="1.1092" opacity="0"/><circle r="0.02" cx="6.5" cy="1.1092" fill="black"/><title>x: 6.5 y: 0.11092 k: 8</title></g><g class="points"><circle r="0.1" cx="7" cy="1.07893" opacity="0"/><circle r="0.02" cx="7" cy="1.07893" fill="black"/><title>x: 7 y: 0.107893 k: 8</title></g><g class="points"><circle r="0.1" cx="7.5" cy="1.03349" opacity="0"/><circle r="0.02" cx="7.5" cy="1.03349" fill="black"/><title>x: 7.5 y: 0.103349 k: 8</title></g></g></g>
+      <g id="curve-9"><path class="curve" fill="none" stroke="red" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.142584,0.000000 0.200000,0.000120 Q 0.313012,0.000356 0.400000,0.001260 Q 0.506857,0.002370 0.600000,0.004710 Q 0.704036,0.007323 0.800000,0.011660 Q 0.902172,0.016277 1.000000,0.023040 Q 1.252019,0.040462 1.500000,0.074190 Q 1.741404,0.107023 2.000000,0.158140 Q 2.230561,0.203715 2.500000,0.268930 Q 2.707678,0.319197 3.000000,0.396460 Q 3.084868,0.418891 3.258343,0.465230 Q 3.417448,0.507730 3.500000,0.529590 Q 3.788098,0.605878 4.000000,0.658180 Q 4.264706,0.723515 4.500000,0.774110 Q 4.756760,0.829321 5.000000,0.871730 Q 5.252105,0.915685 5.500000,0.947720 Q 5.749182,0.979922 6.000000,1.000840 Q 6.247084,1.021447 6.500000,1.031480 Q 6.745021,1.041200 7.000000,1.041200 Q 7.243098,1.041200 7.500000,1.032360 Q 7.741253,1.024058 8.000000,1.007760"/><g id="points-9"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 9</title></g><g class="points"><circle r="0.1" cx="0.2" cy="0.00012" opacity="0"/><circle r="0.02" cx="0.2" cy="0.00012" fill="black"/><title>x: 0.2 y: 0.000012 k: 9</title></g><g class="points"><circle r="0.1" cx="0.4" cy="0.00126" opacity="0"/><circle r="0.02" cx="0.4" cy="0.00126" fill="black"/><title>x: 0.4 y: 0.000126 k: 9</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="0.00471" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="0.00471" fill="black"/><title>x: 0.6000000000000001 y: 0.000471 k: 9</title></g><g class="points"><circle r="0.1" cx="0.8" cy="0.01166" opacity="0"/><circle r="0.02" cx="0.8" cy="0.01166" fill="black"/><title>x: 0.8 y: 0.001166 k: 9</title></g><g class="points"><circle r="0.1" cx="1" cy="0.02304" opacity="0"/><circle r="0.02" cx="1" cy="0.02304" fill="black"/><title>x: 1 y: 0.002304 k: 9</title></g><g class="points"><circle r="0.1" cx="1.5" cy="0.07419" opacity="0"/><circle r="0.02" cx="1.5" cy="0.07419" fill="black"/><title>x: 1.5 y: 0.007419 k: 9</title></g><g class="points"><circle r="0.1" cx="2" cy="0.15814" opacity="0"/><circle r="0.02" cx="2" cy="0.15814" fill="black"/><title>x: 2 y: 0.015814 k: 9</title></g><g class="points"><circle r="0.1" cx="2.5" cy="0.26893" opacity="0"/><circle r="0.02" cx="2.5" cy="0.26893" fill="black"/><title>x: 2.5 y: 0.026893 k: 9</title></g><g class="points"><circle r="0.1" cx="3" cy="0.39646000000000003" opacity="0"/><circle r="0.02" cx="3" cy="0.39646000000000003" fill="black"/><title>x: 3 y: 0.039646 k: 9</title></g><g class="points"><circle r="0.1" cx="3.5" cy="0.52959" opacity="0"/><circle r="0.02" cx="3.5" cy="0.52959" fill="black"/><title>x: 3.5 y: 0.052959 k: 9</title></g><g class="points"><circle r="0.1" cx="3.5" cy="0.52959" opacity="0"/><circle r="0.02" cx="3.5" cy="0.52959" fill="black"/><title>x: 3.5 y: 0.052959 k: 9</title></g><g class="points"><circle r="0.1" cx="4" cy="0.65818" opacity="0"/><circle r="0.02" cx="4" cy="0.65818" fill="black"/><title>x: 4 y: 0.065818 k: 9</title></g><g class="points"><circle r="0.1" cx="4.5" cy="0.77411" opacity="0"/><circle r="0.02" cx="4.5" cy="0.77411" fill="black"/><title>x: 4.5 y: 0.077411 k: 9</title></g><g class="points"><circle r="0.1" cx="5" cy="0.87173" opacity="0"/><circle r="0.02" cx="5" cy="0.87173" fill="black"/><title>x: 5 y: 0.087173 k: 9</title></g><g class="points"><circle r="0.1" cx="5.5" cy="0.9477199999999999" opacity="0"/><circle r="0.02" cx="5.5" cy="0.9477199999999999" fill="black"/><title>x: 5.5 y: 0.094772 k: 9</title></g><g class="points"><circle r="0.1" cx="6" cy="1.0008400000000002" opacity="0"/><circle r="0.02" cx="6" cy="1.0008400000000002" fill="black"/><title>x: 6 y: 0.100084 k: 9</title></g><g class="points"><circle r="0.1" cx="6.5" cy="1.03148" opacity="0"/><circle r="0.02" cx="6.5" cy="1.03148" fill="black"/><title>x: 6.5 y: 0.103148 k: 9</title></g><g class="points"><circle r="0.1" cx="7" cy="1.0412000000000001" opacity="0"/><circle r="0.02" cx="7" cy="1.0412000000000001" fill="black"/><title>x: 7 y: 0.10412 k: 7 / 9</title></g><g class="points"><circle r="0.1" cx="7.5" cy="1.03236" opacity="0"/><circle r="0.02" cx="7.5" cy="1.03236" fill="black"/><title>x: 7.5 y: 0.103236 k: 9</title></g><g class="points"><circle r="0.1" cx="8" cy="1.00776" opacity="0"/><circle r="0.02" cx="8" cy="1.00776" fill="black"/><title>x: 8 y: 0.100776 k: 9</title></g></g></g>
+      <g id="curve-10"><path class="curve" fill="none" stroke="cyan" stroke-width="0.05px" stroke-linecap="butt" d="M 0,0.000000 Q 0.145946,0.000000 0.200000,0.000020 Q 0.320721,0.000065 0.400000,0.000270 Q 0.509766,0.000554 0.600000,0.001250 Q 0.705967,0.002067 0.800000,0.003580 Q 0.904589,0.005263 1.000000,0.007900 Q 1.263435,0.015181 1.500000,0.031140 Q 1.752211,0.048154 2.000000,0.076640 Q 2.244155,0.104708 2.500000,0.145720 Q 2.735828,0.183523 3.000000,0.235330 Q 3.222373,0.278939 3.500000,0.339540 Q 3.664835,0.375520 4.000000,0.451120 Q 4.330104,0.525578 4.500000,0.562760 Q 4.773713,0.622662 5.000000,0.668010 Q 5.261085,0.720331 5.500000,0.761690 Q 5.755593,0.805936 6.000000,0.840160 Q 6.251804,0.875420 6.500000,0.901230 Q 6.749316,0.927156 7.000000,0.944060 Q 7.247367,0.960740 7.500000,0.968900 Q 7.745511,0.976830 8.000000,0.976830"/><g id="points-10"><g class="points"><circle r="0.1" cx="0" cy="0" opacity="0"/><circle r="0.02" cx="0" cy="0" fill="black"/><title>x: 0 y: 0 k: 10</title></g><g class="points"><circle r="0.1" cx="0.2" cy="0.000019999999999999998" opacity="0"/><circle r="0.02" cx="0.2" cy="0.000019999999999999998" fill="black"/><title>x: 0.2 y: 0.000002 k: 10</title></g><g class="points"><circle r="0.1" cx="0.4" cy="0.00027" opacity="0"/><circle r="0.02" cx="0.4" cy="0.00027" fill="black"/><title>x: 0.4 y: 0.000027 k: 10</title></g><g class="points"><circle r="0.1" cx="0.6000000000000001" cy="0.00125" opacity="0"/><circle r="0.02" cx="0.6000000000000001" cy="0.00125" fill="black"/><title>x: 0.6000000000000001 y: 0.000125 k: 10</title></g><g class="points"><circle r="0.1" cx="0.8" cy="0.00358" opacity="0"/><circle r="0.02" cx="0.8" cy="0.00358" fill="black"/><title>x: 0.8 y: 0.000358 k: 10</title></g><g class="points"><circle r="0.1" cx="1" cy="0.0079" opacity="0"/><circle r="0.02" cx="1" cy="0.0079" fill="black"/><title>x: 1 y: 0.00079 k: 10</title></g><g class="points"><circle r="0.1" cx="1.5" cy="0.03114" opacity="0"/><circle r="0.02" cx="1.5" cy="0.03114" fill="black"/><title>x: 1.5 y: 0.003114 k: 10</title></g><g class="points"><circle r="0.1" cx="2" cy="0.07664" opacity="0"/><circle r="0.02" cx="2" cy="0.07664" fill="black"/><title>x: 2 y: 0.007664 k: 10</title></g><g class="points"><circle r="0.1" cx="2.5" cy="0.14572" opacity="0"/><circle r="0.02" cx="2.5" cy="0.14572" fill="black"/><title>x: 2.5 y: 0.014572 k: 10</title></g><g class="points"><circle r="0.1" cx="3" cy="0.23532999999999998" opacity="0"/><circle r="0.02" cx="3" cy="0.23532999999999998" fill="black"/><title>x: 3 y: 0.023533 k: 10</title></g><g class="points"><circle r="0.1" cx="3.5" cy="0.33953999999999995" opacity="0"/><circle r="0.02" cx="3.5" cy="0.33953999999999995" fill="black"/><title>x: 3.5 y: 0.033954 k: 10</title></g><g class="points"><circle r="0.1" cx="4" cy="0.45111999999999997" opacity="0"/><circle r="0.02" cx="4" cy="0.45111999999999997" fill="black"/><title>x: 4 y: 0.045112 k: 10</title></g><g class="points"><circle r="0.1" cx="4.5" cy="0.56276" opacity="0"/><circle r="0.02" cx="4.5" cy="0.56276" fill="black"/><title>x: 4.5 y: 0.056276 k: 10</title></g><g class="points"><circle r="0.1" cx="5" cy="0.66801" opacity="0"/><circle r="0.02" cx="5" cy="0.66801" fill="black"/><title>x: 5 y: 0.066801 k: 10</title></g><g class="points"><circle r="0.1" cx="5.5" cy="0.76169" opacity="0"/><circle r="0.02" cx="5.5" cy="0.76169" fill="black"/><title>x: 5.5 y: 0.076169 k: 10</title></g><g class="points"><circle r="0.1" cx="6" cy="0.8401599999999999" opacity="0"/><circle r="0.02" cx="6" cy="0.8401599999999999" fill="black"/><title>x: 6 y: 0.084016 k: 10</title></g><g class="points"><circle r="0.1" cx="6.5" cy="0.90123" opacity="0"/><circle r="0.02" cx="6.5" cy="0.90123" fill="black"/><title>x: 6.5 y: 0.090123 k: 10</title></g><g class="points"><circle r="0.1" cx="7" cy="0.94406" opacity="0"/><circle r="0.02" cx="7" cy="0.94406" fill="black"/><title>x: 7 y: 0.094406 k: 10</title></g><g class="points"><circle r="0.1" cx="7.5" cy="0.9689000000000001" opacity="0"/><circle r="0.02" cx="7.5" cy="0.9689000000000001" fill="black"/><title>x: 7.5 y: 0.09689 k: 10</title></g><g class="points"><circle r="0.1" cx="8" cy="0.9768300000000001" opacity="0"/><circle r="0.02" cx="8" cy="0.9768300000000001" fill="black"/><title>x: 8 y: 0.097683 k: 8 / 10</title></g></g></g>
+    </g>
+
+    <g id="legend" transform="translate(480,-360)">
+      <rect id="legend_background" x="0.5" y="0.5" width="160" height="190" fill="white" opacity="0.8"/>
+      <g id="legend_lines" transform="translate(46.5,20)">
+        <g id="k_is_1" transform="translate(0,0)"> 
+          <path id="curvel-1" fill="none" stroke="#cccc00" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+  		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox1" checked="true" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>1</tspan>
+          </text>
+        </g>
+        <g id="k_is_2" transform="translate(0,30)"> 
+          <path id="curvel-2" fill="none" stroke="lime" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+  		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox2" checked="true" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>2</tspan>
+          </text>
+        </g>
+        <g id="k_is_3" transform="translate(0,60)"> 
+          <path id="curvel-3" fill="none" stroke="#00cccc" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+  		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox3" checked="true" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>3</tspan>
+          </text>
+        </g>
+        <g id="k_is_4" transform="translate(0,90)"> 
+          <path id="curvel-4" fill="none" stroke="#0000ff" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+  		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox4" checked="true" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>4</tspan>
+          </text>
+        </g>
+        <g id="k_is_5" transform="translate(0,120)"> 
+          <path id="curvel-5" fill="none" stroke="orange" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+  		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox5" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>5</tspan>
+          </text>
+        </g>
+        <g id="k_is_6" transform="translate(0,150)">
+          <path id="curvel-6" fill="none" stroke="#aa00aa" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox6" checked="true" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>6</tspan>
+          </text>
+        </g>
+        <g id="k_is_7" transform="translate(0,180)">
+          <path id="curvel-7" fill="none" stroke="green" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox7" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>7</tspan>
+          </text>
+        </g>
+        <g id="k_is_8" transform="translate(0,210)">
+          <path id="curvel-8" fill="none" stroke="yellow" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox8" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="8" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>8</tspan>
+          </text>
+        </g>
+        <g id="k_is_9" transform="translate(0,240)"> 
+          <path id="curvel-9" fill="none" stroke="#ff0000" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+  		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox9" checked="true" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>9</tspan>
+          </text>
+        </g>
+        <g id="k_is_10" transform="translate(0,270)"> 
+          <path id="curvel-10" fill="none" stroke="cyan" stroke-width="3px" stroke-linecap="butt" d="M 0,0 H -30"/>
+  		  <foreignObject x="10" y="-12" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkbox10" />
+              </xhtml:div>
+		  </foreignObject>
+          <text x="34" y="6" fill="black" font-size="27">
+            <tspan font-style="italic">k</tspan>
+            <tspan>=</tspan>
+            <tspan>10</tspan>
+          </text>
+        </g>
+        <g transform="translate(0,300)"> 
+          <text id="showpoints" x="-10" y="6" fill="black"> 
+            <tspan>Afficher les points</tspan>
+          </text>
+  		  <foreignObject x="-32" y="-10" width="100" height="150">
+              <xhtml:div>
+				<xhtml:input type="checkbox" id="chkShowPoints" />
+              </xhtml:div>
+		  </foreignObject>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
