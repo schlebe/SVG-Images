@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="chi-square_pdf"
+  version="1.1"
+  baseProfile="full"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  width="720"
+  height="600"
+  pointer-events="visible"
+  >
+
+	<style>
+	
+	#curve-2 { visibility: hidden }
+	#check-2 { visibility: hidden }
+
+	.border
+		{
+		border-radius: 2px;
+		}
+		
+    @keyframes hide    { to { visibility: hidden } }
+    @keyframes show    { to { visibility: visible } }
+/*
+    #check-1 { animation: .1ms hide both paused }
+    #curve-1 { animation: .1ms hide both paused }
+    #check-2 { animation: .1ms show both paused }
+    #curve-2 { animation: .1ms show both paused }
+    #check-3 { animation: .1ms hide both paused }
+    #curve-3 { animation: .1ms hide both paused }
+*/
+
+    .checked g   { animation: .1ms hide both paused }
+    .unchecked g { animation: .1ms show both paused }
+
+    #curve-1 { animation: .1ms hide both paused }
+    #curve-2 { animation: .1ms show both paused }
+    #curve-3 { animation: .1ms hide both paused }
+
+    #check-1:active
+		{
+		animation-play-state: running
+		}
+    :has(#border-1:active) #check-1
+		{
+		animation: none
+		}
+
+    #check-2:active
+		{
+		animation: none
+		}
+    :has(#border-2:active) #check-2
+		{
+		animation-play-state: running
+		}
+
+    #check-3:active
+		{
+		animation-play-state: running
+		}
+    :has(#border-3:active) #check-3
+		{
+		animation: none
+		}
+
+    :has(#check-1:active)  #curve-1 { animation-play-state: running }
+    :has(#border-1:active) #curve-1 { animation: none }
+    :has(#check-2:active)  #curve-2 { animation: none }
+    :has(#border-2:active) #curve-2 { animation-play-state: running }
+    :has(#check-3:active)  #curve-3 { animation-play-state: running }
+    :has(#border-3:active) #curve-3 { animation: none }
+
+	</style>
+
+	<g id="main">
+
+		<g id="legend">
+			<g transform="translate(10,20)"> 
+				<g id="chkbox-1" class="checked">
+					<rect id="border-1" class="border" stroke="black" fill="white" width="20" height="20" x="6" y="-12" rx="2" ry="2"/> 
+					<g id="check-1">
+						<rect id="rect-1" class="check" fill="white" width="16" height="16" x="8" y="-10"/>
+						<path id="path-1" class="check" stroke="black" fill="none" stroke-width="2px" d="M 10,-2 l 4,4 l 8,-8"/>
+					</g>
+				</g>
+				<text x="30" y="2" fill="black"> 
+					<tspan>curve-1</tspan>
+				</text>
+			</g>
+			<g transform="translate(10,50)"> 
+				<g id="chkbox-2" class="unchecked">
+					<rect id="border-2" class="border" stroke="black" fill="white" width="20" height="20" x="6" y="-12" rx="2" ry="2"/> 
+					<g id="check-2">
+						<rect id="rect-2" class="check" fill="white" width="16" height="16" x="8" y="-10"/>
+						<path id="path-2" class="check" stroke="black" fill="none" stroke-width="2px" d="M 10,-2 l 4,4 l 8,-8"/>
+					</g>
+				</g>
+				<text x="30" y="2" fill="black"> 
+					<tspan>curve-2</tspan>
+				</text>
+			</g>
+			<g transform="translate(10,80)"> 
+				<g id="chkbox-3" class="checked">
+					<rect id="border-3" class="border" stroke="black" fill="white" width="20" height="20" x="6" y="-12" rx="2" ry="2"/> 
+					<g id="check-3">
+						<rect id="rect-3" class="check" fill="white" width="16" height="16" x="8" y="-10"/>
+						<path id="path-3" class="check" stroke="black" fill="none" stroke-width="2px" d="M 10,-2 l 4,4 l 8,-8"/>
+					</g>
+				</g>
+				<text x="30" y="2" fill="black"> 
+					<tspan>curve-3</tspan>
+				</text>
+			</g>
+		</g>
+
+		<g id="curves" transform="translate(0, 100)">
+			<g id="curve-1" class="curve">
+				<circle stroke="blue" stroke-width="2px" fill="none" cx="100" cy="80" r="80"/>
+			</g> 
+			<g id="curve-2" class="curve">
+				<rect stroke="red" fill="none" stroke-width="2px" width="200" height="150" x="40" y="80"/> 
+			</g>
+			<g id="curve-3" class="curve">
+				<path stroke="green" fill="none" stroke-width="2px" d="M100,100 l 100,100, l100,-100 z"/> 
+			</g>
+		</g>
+
+	</g>
+
+</svg>
